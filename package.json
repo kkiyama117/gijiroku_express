@@ -43,6 +43,10 @@
     "*.js": [
       "eslint --fix",
       "git add"
+    ],
+    "bin/www": [
+      "eslint --fix",
+      "git add"
     ]
   },
   "husky": {
