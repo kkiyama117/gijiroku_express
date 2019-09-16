@@ -7,6 +7,10 @@
   "private": true,
   "author": "Kouhei Kiyama <k.kiyama117@gmail> (https://github.com/kkiyama117/)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:kkiyama117/gijiroku_express.git"
+  },
   "main": "app.js",
   "scripts": {
     "dev": "node ./bin/www",
@@ -15,14 +19,7 @@
     "stage": "sudo docker-compose -f docker/docker-compose.yml up",
     "stage_stop": "sudo docker-compose -f docker/docker-compose.yml down",
     "production": "sudo docker-compose -f docker/docker-compose.prod.yml up",
-    "production_stop": "sudo docker-compose -f docker/docker-compose.prod.yml down",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+    "production_stop": "sudo docker-compose -f docker/docker-compose.prod.yml down"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -30,10 +27,6 @@
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "mysql": "^2.17.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com:kkiyama117/gijiroku_express.git"
   },
   "devDependencies": {
     "eslint": "^6.4.0",
@@ -44,5 +37,16 @@
     "lint-staged": "^9.2.5",
     "mocha": "^6.2.0",
     "prettier": "^1.18.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
