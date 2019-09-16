@@ -6,7 +6,10 @@ module.exports = {
       type: 'int',
       generated: true,
     },
-    name: {
+    firstName: {
+      type: 'varchar',
+    },
+    LastName: {
       type: 'varchar',
     },
   },
