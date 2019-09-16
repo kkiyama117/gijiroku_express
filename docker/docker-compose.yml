@@ -30,4 +30,4 @@ services:
     working_dir: /app
     environment:
       NODE_ENV: development
-    command: ['bin/www']
+    command: ['yarn', 'dev']

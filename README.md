@@ -49,7 +49,7 @@ yarn
 cp .env.example .env
 yarn stage
 # sudo docker-compose -f docker/docker-compose.yml up
-# see HP with browser in `localhost`
+# see HP with browser in `localhost:8001`
 # You can close it by Ctrl-C
 ```
 
