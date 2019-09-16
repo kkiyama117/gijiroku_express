@@ -1,0 +1,30 @@
+{
+  "name": "express-docker-sample",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Kouhei Kiyama <k.kiyama117@gmail> (https://github.com/kkiyama117/)",
+  "license": "MIT",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha",
+    "stage": "sudo docker-compose -f docker/docker-compose.yml up",
+    "stage_stop": "sudo docker-compose -f docker/docker-compose.yml down",
+    "production": "sudo docker-compose -f docker/docker-compose.prod.yml up",
+    "production_stop": "sudo docker-compose -f docker/docker-compose.prod.yml down"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1",
+    "mysql": "^2.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:kkiyama117/express_docker.git"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  }
+}
