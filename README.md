@@ -1,6 +1,8 @@
 # [Gijiroku_express](https://github.com/kkiyama117/gijiroku_express)
 ## 設計/画面遷移図
 https://drive.google.com/file/d/1fQqJ_w7CRZdtDzj2B6--UwAPleqpxlEi/view
+## 開発フロー
+[(仮)](http://kyoino.sakura.ne.jp/kids/?project/development_flow)
 
 # Usage 
 ## Preparation
@@ -34,6 +36,9 @@ yarn global add eslint eslint-config-node prettier eslint-config-prettier eslint
 ```
 2. Run script
 ```shell script
+# create `.env` file in Project_root 
+# and write `PORT=3000` when you change server port to 3000
+cp .env.example .env
 yarn dev
 # see HP with browser in `localhost:8080` if you don't copy env file
 # (you can close this server by ctrl-C)
