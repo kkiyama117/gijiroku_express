@@ -24,6 +24,7 @@ services:
     stdin_open: true
     image: node:alpine
     init: true
+    user: node
     volumes:
       - ../:/app
     working_dir: /app

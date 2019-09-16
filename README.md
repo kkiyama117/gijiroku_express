@@ -34,15 +34,12 @@ yarn global add eslint eslint-config-node prettier eslint-config-prettier eslint
 ```
 2. Run script
 ```shell script
-# create `.env` file in Project_root 
-# and write `PORT=3000` if you change local server port to 3000
-cp .env.example .env
 yarn dev
 # see HP with browser in `localhost:8080` if you don't copy env file
 # (you can close this server by ctrl-C)
 ``` 
 
-## for prod
+## for prod/stage
 1. use docker from command
 ```shell script
 cd $PROJECT_ROOT
