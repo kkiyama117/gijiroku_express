@@ -40,6 +40,7 @@
     "mocha": "^6.2.0",
     "prettier": "^1.18.2",
     "reflect-metadata": "^0.1.13",
+    "sqlite3": "^4.1.0",
     "typeorm": "^0.2.19",
     "typeorm-factory": "^0.0.13"
   },
