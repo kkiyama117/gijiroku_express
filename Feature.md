@@ -12,6 +12,7 @@
 - 議事録の管理
 # システムの構成
 - バックエンド用サーバー
+[使用している依存Library](https://github.com/kkiyama117/gijiroku_express/network/dependencies)
   - Express
   - TypeORM
     - SQL
