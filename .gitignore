@@ -34,12 +34,35 @@ build/Release
 
 # Dependency directories
 node_modules/
-build/
-tmp/
-temp/
+jspm_packages/
+
+# Typescript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
 .env
+
+# next.js build output
+.next
 
 # Editor
 .idea
 
 docker/nginx/default.conf
+dist
+*.sqlite*
