@@ -84,7 +84,6 @@
     "node_modules",
     "**/*.d.ts",
     "build/**/*.js",
-    "dist/**/*.js",
-    "src/migration/**/*.ts"
+    "dist/**/*.js"
   ]
 }
