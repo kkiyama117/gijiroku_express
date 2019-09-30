@@ -1,6 +1,6 @@
 {
-  "name": "express-docker-sample",
-  "version": "0.0.1",
+  "name": "gijiroku_express",
+  "version": "0.4.12",
   "engines": {
     "node": ">=12.8.1"
   },
@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:kkiyama117/express_docker.git"
+    "url": "git+ssh://git@github.com:kkiyama117/gijiroku_express.git"
   },
   "main": "app.ts",
   "scripts": {
