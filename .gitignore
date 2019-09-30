@@ -64,3 +64,5 @@ typings/
 .idea
 
 docker/nginx/default.conf
+dist
+*.sqlite*

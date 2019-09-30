@@ -1,5 +1,5 @@
 # 該当Issue
-https://kyoino.backlog.jp/view/MINS-6
+https://kyoino.backlog.jp/view/MINS-8
 # 変更した内容
 ## ファイル/フォルダ毎の変更
 - Feature.md
