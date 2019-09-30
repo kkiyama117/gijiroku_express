@@ -98,12 +98,10 @@ class NoteController {
     }
 
     //Validate the new values on model
-    note.title = title;
-    note.text = text;
-    note.user = noteUser;
+    note.update({ title, text, user: noteUser });
     const errors = await validate(note);
     if (errors.length > 0) {
-      res.status(400).send(errors);
+      res.status(400).send({ error: errors });
       return;
     }
 
@@ -111,7 +109,7 @@ class NoteController {
     try {
       await noteRepository.save(note);
     } catch (e) {
-      res.status(409).send('name already in use');
+      res.status(409).send({ error: e });
       return;
     }
     //After all send a 204 (no content, but accepted) response

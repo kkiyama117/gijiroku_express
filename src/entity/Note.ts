@@ -12,6 +12,7 @@ import { User } from './User';
 interface NoteInterface {
   title: string;
   text: string;
+  user?: User | undefined;
 }
 
 @Entity()
@@ -42,5 +43,14 @@ export class Note {
   constructor(obj?: NoteInterface) {
     this.title = (obj && obj.title) || '';
     this.text = (obj && obj.text) || '';
+    this.user = (obj && obj.user) || undefined;
+  }
+  /// no commit with update
+  update(obj?: NoteInterface): Note {
+    this.title = (obj && obj.title) || this.title;
+    this.text = (obj && obj.text) || this.text;
+    this.user = (obj && obj.user) || this.user;
+
+    return this;
   }
 }

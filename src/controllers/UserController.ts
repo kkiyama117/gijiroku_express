@@ -68,7 +68,7 @@ class UserController {
     const id = req.params.id;
 
     //Get values from the body
-    const { firstName, lastName, roles } = req.body;
+    const { firstName, lastName, roles, notes } = req.body;
 
     //Try to find user on database
     const userRepository = getRepository(User);
@@ -82,9 +82,7 @@ class UserController {
     }
 
     //Validate the new values on model
-    user.firstName = firstName;
-    user.lastName = lastName;
-    user.roles = roles;
+    user.update({ firstName, lastName, password: user.password, roles, notes });
     const errors = await validate(user);
     if (errors.length > 0) {
       res.status(400).send(errors);
