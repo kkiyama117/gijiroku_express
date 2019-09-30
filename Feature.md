@@ -8,30 +8,34 @@
 - 議事録管理
   - b
 ## 要件一覧
-- ユーザー管理をする
+- ユーザー管理
 - 議事録の管理
 # システムの構成
 - バックエンド用サーバー
+[使用している依存Library](https://github.com/kkiyama117/gijiroku_express/network/dependencies)
   - Express
-  - CRUDのAPI 
+  - TypeORM
+    - SQL
+  - CRUDのAPI
+    - HAL or JSON API
+  - Docker (prod,stage) <-> nodemon(dev)
 - フロントエンド用サーバー
   - nuxt
     - SSR
-    
-## システム構成図
-なんかしらで書いてURLを貼る
+
 ### ハードウェア・ソフトウェア構成図
 なんかしらで書いてURLを貼る
 ### ネットワーク構成図
 なんかしらで書いてURLを貼る
 ## 業務フロー・アクティビティ図
-なんかしらで書いてURLを貼る
+Backlogか[Github](https://github.com/kkiyama117/gijiroku_express/projects/1)
 
 # その他
 ## 開発体制
 - PMが書く
 ## 開発スケジュール
 - とりあえず [Backlog](https://kyoino.backlog.jp/projects/MINS) で管理
+- [Github](https://github.com/kkiyama117/gijiroku_express/projects/1) にコピー
 ## プロジェクト管理ツール
 - [Backlog](https://kyoino.backlog.jp/projects/MINS)
 - [github](https://github.com/kkiyama117/gijiroku_express)
