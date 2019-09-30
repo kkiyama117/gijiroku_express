@@ -12,7 +12,7 @@ class NoteController {
     try {
       const notes = await noteRepository.find();
       //Send the users object
-      res.send(notes);
+      res.send({ notes: notes });
       return;
     } catch (e) {
       res.status(404).send('notes not found');
@@ -42,7 +42,8 @@ class NoteController {
     const userRepository = getRepository(User);
     try {
       const noteUser: User | undefined = await userRepository.findOne(user);
-      note = new Note({ title, text, user: noteUser });
+      note = new Note({ title, text });
+      note.user = noteUser;
     } catch (e) {
       res.status(400).send('invalid user');
       return;

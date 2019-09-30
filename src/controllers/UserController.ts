@@ -12,7 +12,7 @@ class UserController {
     try {
       const users = await userRepository.find();
       //Send the users object
-      res.send(users);
+      res.send({ users: users });
       return;
     } catch (e) {
       res.status(404).send('users not found');
@@ -60,7 +60,7 @@ class UserController {
     }
 
     //If all ok, send 201 response
-    res.status(201).send('User created');
+    res.status(201).send({ status: 'OK', user: user });
   };
 
   static editUser = async (req: Request, res: Response): Promise<void> => {
@@ -99,7 +99,7 @@ class UserController {
       return;
     }
     //After all send a 204 (no content, but accepted) response
-    res.status(204).send();
+    res.status(204).send({ status: 'OK', user: user });
   };
 
   static deleteUser = async (req: Request, res: Response): Promise<void> => {
@@ -117,7 +117,7 @@ class UserController {
     await userRepository.delete(id);
 
     //After all send a 204 (no content, but accepted) response
-    res.status(204).send(user);
+    res.status(204).send({ status: 'OK', user: user });
   };
 }
 

@@ -23,7 +23,7 @@ export class Note {
   @Length(4, 20)
   title: string;
 
-  @Column({ name: 'text', select: false })
+  @Column({ name: 'text' })
   @Length(4, 100)
   text: string;
 
