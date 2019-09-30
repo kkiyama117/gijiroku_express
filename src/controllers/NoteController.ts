@@ -66,7 +66,7 @@ class NoteController {
     }
 
     //If all ok, send 201 response
-    res.status(201).send('Note created');
+    res.status(201).send({ status: 'OK', note: note });
   };
 
   static editNote = async (req: Request, res: Response): Promise<void> => {
@@ -115,7 +115,7 @@ class NoteController {
       return;
     }
     //After all send a 204 (no content, but accepted) response
-    res.status(204).send();
+    res.status(204).send({ status: 'OK', note: note });
   };
 
   static deleteNote = async (req: Request, res: Response): Promise<void> => {
@@ -127,13 +127,13 @@ class NoteController {
     try {
       note = await noteRepository.findOneOrFail(id);
     } catch (error) {
-      res.status(404).send('User to delete not found');
+      res.status(404).send('Note to delete not found');
       return;
     }
     await noteRepository.delete(id);
 
     //After all send a 204 (no content, but accepted) response
-    res.status(204).send(note);
+    res.status(204).send({ status: 'OK', note: note });
   };
 }
 
