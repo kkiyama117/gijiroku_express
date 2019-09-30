@@ -6,10 +6,12 @@ import {
   UpdateDateColumn,
   ManyToMany,
   JoinTable,
+  OneToMany,
 } from 'typeorm';
 import { Length } from 'class-validator';
 import * as bcrypt from 'bcryptjs';
 import { Role } from './Role';
+import { Note } from './Note';
 
 interface UserInterface {
   firstName: string;
@@ -31,28 +33,33 @@ export class User {
   @Length(4, 20)
   lastName: string;
 
-  @Column()
+  @Column({ name: 'password', select: false })
   @Length(4, 100)
   password!: string;
 
-  @Column()
+  @Column({ name: 'created_at' })
   @CreateDateColumn()
   readonly createdAt!: Date;
 
-  @Column()
+  @Column({ name: 'updated_at' })
   @UpdateDateColumn()
   updatedAt!: Date;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  @ManyToMany(type => Role)
+  @ManyToMany(type => Role, role => role.users, { cascade: true })
   @JoinTable()
-  roles?: Array<Role> | null;
+  roles?: Array<Role>;
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  @OneToMany(type => Note, note => note.user, { cascade: true })
+  @JoinTable()
+  notes?: Array<Note>;
 
   constructor(obj?: UserInterface) {
     this.firstName = (obj && obj.firstName) || '';
     this.lastName = (obj && obj.lastName) || '';
     this.password = (obj && obj.password) || '';
-    this.roles = (obj && obj.roles) || null;
+    this.roles = obj && obj.roles;
   }
 
   checkIfUnencryptedPasswordIsValid(unencryptedPassword: string): boolean {
