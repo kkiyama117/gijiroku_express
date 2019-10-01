@@ -12,7 +12,7 @@ class NoteController {
     try {
       const notes = await noteRepository.find();
       //Send the users object
-      res.send(notes);
+      res.send({ notes: notes });
       return;
     } catch (e) {
       res.status(404).send('notes not found');
@@ -42,7 +42,8 @@ class NoteController {
     const userRepository = getRepository(User);
     try {
       const noteUser: User | undefined = await userRepository.findOne(user);
-      note = new Note({ title, text, user: noteUser });
+      note = new Note({ title, text });
+      note.user = noteUser;
     } catch (e) {
       res.status(400).send('invalid user');
       return;
@@ -65,7 +66,7 @@ class NoteController {
     }
 
     //If all ok, send 201 response
-    res.status(201).send('Note created');
+    res.status(201).send({ status: 'OK', note: note });
   };
 
   static editNote = async (req: Request, res: Response): Promise<void> => {
@@ -97,12 +98,10 @@ class NoteController {
     }
 
     //Validate the new values on model
-    note.title = title;
-    note.text = text;
-    note.user = noteUser;
+    note.update({ title, text, user: noteUser });
     const errors = await validate(note);
     if (errors.length > 0) {
-      res.status(400).send(errors);
+      res.status(400).send({ error: errors });
       return;
     }
 
@@ -110,11 +109,11 @@ class NoteController {
     try {
       await noteRepository.save(note);
     } catch (e) {
-      res.status(409).send('name already in use');
+      res.status(409).send({ error: e });
       return;
     }
     //After all send a 204 (no content, but accepted) response
-    res.status(204).send();
+    res.status(204).send({ status: 'OK', note: note });
   };
 
   static deleteNote = async (req: Request, res: Response): Promise<void> => {
@@ -126,13 +125,13 @@ class NoteController {
     try {
       note = await noteRepository.findOneOrFail(id);
     } catch (error) {
-      res.status(404).send('User to delete not found');
+      res.status(404).send('Note to delete not found');
       return;
     }
     await noteRepository.delete(id);
 
     //After all send a 204 (no content, but accepted) response
-    res.status(204).send(note);
+    res.status(204).send({ status: 'OK', note: note });
   };
 }
 
