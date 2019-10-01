@@ -24,8 +24,7 @@
     "production_stop": "sudo docker-compose -f docker/docker-compose.prod.yml down",
     "typeorm": "ts-node ./node_modules/typeorm/cli",
     "migration:generate": "yarn typeorm migration:generate",
-    "migration:run": "yarn typeorm migration:run",
-    "doc": "yarn typedoc --name 'express_docker example' --includeDeclarations --excludeExternals --mode modules"
+    "migration:run": "yarn typeorm migration:run"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
